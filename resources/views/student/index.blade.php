@@ -5,7 +5,7 @@
 @section('container')
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <h2 class="my-3">DAFTAR MAHASISWA</h2>
             @if(session('success'))
             <div class="alert alert-success">
@@ -15,10 +15,11 @@
 
             <a href="/student/create" class="btn btn-primary my-3" type="submit">Tambah Data</a>
 
-            <table class="table table-hover">
+            <table class="table table-hover table-bordered">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th scope="col">No</th>
+                        <th scope="col">No Pendaftaran</th>
                         <th scope="col">Nama</th>
                         <th scope="col">NIM</th>
                         <th scope="col">Jurusan</th>
@@ -30,7 +31,8 @@
                 @foreach($mahasiswa as $mhs)
                 <tbody>
                     <tr>
-                        <th scope="row">{{ $loop->iteration }}</th>
+                        <th scope="row" class="text-center">{{ $loop->iteration }}</th>
+                        <td>{{$mhs->no_pendaftaran}}</td>
                         <td>{{$mhs->nama}}</td>
                         <td>{{$mhs->nim}}</td>
                         <td>{{$mhs->jurusan}}</td>
@@ -57,10 +59,15 @@
                 </tbody>
                 @endforeach
             </table>
-
-
-
         </div>
+    </div>
+    <div class="row">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item"> {{$users->links()}}
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>
 @endsection

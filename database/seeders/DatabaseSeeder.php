@@ -27,27 +27,30 @@ class DatabaseSeeder extends Seeder
             'email' => 'aliikbaljamphers26@gmail.com',
             'password' => Hash::make('admin'),
             'level' => 'admin',
-            'photo' => ''
+            'photo' => 'Aliikbal.jpg'
         ]);
         User::create([
             'name' => 'user',
             'email' => 'user@gmail.com',
             'password' => Hash::make('user'),
             'level' => 'user',
-            'photo' => ''
+            'photo' => 'Aliikbal.jpg'
         ]);
         User::create([
             'name' => 'operator',
             'email' => 'oprator@gmail.com',
             'password' => Hash::make('oprator'),
             'level' => 'oprator',
-            'photo' => ''
+            'photo' => 'Aliikbal.jpg'
         ]);
         Student::create([
             'nama' => 'Ali Ikbal',
-            'nim' => '41200124',
+            'nim' => '41200001',
+            'gender' => 'Laki-Laki',
+            'email' => 'user@gmail.com',
+            'no_pendaftaran' => Student::generateNoPendaftaran(),
             'jurusan' => 'Teknik Informatika',
-            'foto' => '',
+            'foto' => 'Aliikbal.jpg',
             'status' => 'pending'
         ]);
     }

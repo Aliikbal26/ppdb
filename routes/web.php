@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\RegistrasiController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Models\Student;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,9 +38,9 @@ Route::get('/login', [UserController::class, 'index'])->middleware('guest');
 Route::post('/login', [UserController::class, 'store'])->name('login');
 Route::post('/logout', [UserController::class, 'destroy'])->middleware('auth');
 Route::get('/home', [StudentsController::class, 'index'])->middleware('auth');
-Route::get('/student', [StudentsController::class, 'index'])->middleware('auth');
+Route::get('/student', [StudentsController::class, 'AllMahasiswa'])->middleware('auth');
 Route::get('/student/create', [StudentsController::class, 'create'])->middleware('auth');
-Route::post('/student/create', [StudentsController::class, 'store'])->middleware('auth');
+Route::post('/student/create', [StudentsController::class, 'daftarPost'])->middleware('auth');
 Route::get('/student/{student}', [StudentsController::class, 'show'])->middleware('auth');
 Route::delete('/student/{student}', [StudentsController::class, 'destroy'])->middleware('auth');
 Route::get('/student/{student}/edit', [StudentsController::class, 'edit'])->middleware('auth');
@@ -53,6 +54,9 @@ Route::get('/mahasiswa', [StudentsController::class, 'mahasiswa'])->middleware('
 Route::get('/mahasiswa/show', [StudentsController::class, 'daftarMhs'])->middleware('auth')->name('Daftar-Mahasiswa');
 Route::get('/mahasiswa/create', [StudentsController::class, 'daftarShow'])->middleware('auth');
 Route::post('/mahasiswa/create', [StudentsController::class, 'daftarPost'])->middleware('auth');
+Route::get('/mahasiswa/{email}/download', [StudentsController::class, 'downloadPDF'])->name('download.pdf');
+Route::get('/mahasiswa/{id}', [StudentsController::class, 'daftarMhsUser'])->middleware('auth');
+Route::get('/search', [StudentsController::class, 'serchMhs'])->name('search');
 
 
 // Rute untuk mengirim email reset password

@@ -35,30 +35,28 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
-
-
-
         // $user = User::find('email', 'password');
         $credentials = [
             'email' => $request->email,
             'password' => $request->password
         ];
 
-        $result = auth()->attempt($credentials);
-        if ($result && Auth::user()->level == 'admin') {
-            return redirect('/student');
-        }
-        if ($result && Auth::user()->level == 'oprator') {
-            return redirect('/student');
-        }
-        if ($result && Auth::user()->level == 'user') {
-            return redirect('/mahasiswa');
+        if ($result = auth()->attempt($credentials) && Auth::user()) {
+
+            if ($result && Auth::user()->level == 'admin') {
+                return redirect('/student');
+            }
+            if ($result && Auth::user()->level == 'oprator') {
+                return redirect('/student');
+            }
+            if ($result && Auth::user()->level == 'user') {
+                return redirect('/mahasiswa');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Email atau Password salah !');
         }
 
-        return redirect('/student');
-        // dd($result);
-        // exit;
+        //$result = auth()->attempt($credentials);
     }
 
     /**

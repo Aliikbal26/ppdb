@@ -11,15 +11,11 @@
 <body>
     <div class="container">
         <div class="row p-3 justify-content-center my-5">
-            <div class="card shadow p-4 col-md-4 mt-5">
+            <div class="card shadow p-4 col-md-4 ">
                 <h2 class="text-center">Login</h2>
-                @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <p>{{ $error }}</p>
-                        @endforeach
-                    </ul>
+                @if (session('error'))
+                <div class="alert alert-danger text-center">
+                    {{session('error')}}
                 </div>
                 @endif
 

@@ -15,7 +15,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
         <div class="container">
             <a class="navbar-brand text-bold" href="#">Ali Ikbal</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,6 +26,7 @@
                     @if(Auth::User()->level == 'user')
                     <a class="nav-link" aria-current="page" href="{{url('/mahasiswa')}}">Home</a>
                     <a class="nav-link" href="{{url('/mahasiswa/show')}}">Students</a>
+                    <a class="nav-link" href="{{url('/mahasiswa/pendaftaran')}}">Pendftaran</a>
                     @endif
                     @if(Auth::User()->level == 'oprator')
                     <a class="nav-link" aria-current="page" href="{{url('/home')}}">Home</a>

@@ -22,6 +22,11 @@
                     </ul>
                 </div>
                 @endif
+                @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+                @endif
 
                 <hr>
                 <form action="{{url('/admin/register')}}" method="post" enctype="multipart/form-data">
@@ -51,6 +56,7 @@
                             <option value="user">User</option>
                         </select>
                         <input class="btn btn-primary my-3" type="submit" name="submit" id="submit">
+                        <a href="{{url('student')}}" class="btn btn-success"><- back</a>
                     </div>
 
                     <!-- <button type="submit" class="btn btn-primary">Register</button>

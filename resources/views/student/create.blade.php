@@ -6,6 +6,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
+
             <form action="/student/create" method="post" enctype="multipart/form-data">
                 @csrf
                 <h1 class="my-3 text-center">Form Tambah Data</h1>
@@ -24,9 +25,9 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="nim">Nomor Induk Mahasiswa</label>
-                    <input class="form-control  @error('nim') is-invalid @enderror" type="text" name="nim" id="nim" value="{{old('nim')}}">
-                    @error('nim')
+                    <label for="email">Email</label>
+                    <input class="form-control  @error('email') is-invalid @enderror" type="email" name="email" id="email" value="{{old('email')}}">
+                    @error('email')
                     <div class="invalid-feedback">
                         {{$message}}
                     </div>
@@ -40,6 +41,14 @@
                         {{$message}}
                     </div>
                     @enderror
+                </div>
+                <div class="form-group">
+                    <label class=" my-2" for="jurusan">Jenis Kelamin</label><br>
+                    <input class="form-check-input" type="radio" value="Laki-Laki" name="gender" id="genderL">
+                    <label class="form-check-label mb-2 mr-2" for="genderL">Laki Laki</label>
+                    <input class="form-check-input" type="radio" value="Perempuan" name="gender" id="genderP">
+                    <label class="form-check-label mb-2 mr-2" for="genderP">Perempuan</label>
+
                 </div>
                 <div class="form-group">
                     <label for="jurusan">Jurusan</label>

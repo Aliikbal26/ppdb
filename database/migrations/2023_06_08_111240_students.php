@@ -13,8 +13,13 @@ return new class extends Migration
     {
         //
         Schema::create('students', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
+            //$table->unsignedBigInteger('user_id');
+            $table->foreign('email')->references('email')->on('users');
+            $table->string('no_pendaftaran', 12)->unique();
             $table->string('nama');
+            $table->string('gender');
+            $table->string('email');
             $table->char('nim', 8)->unique();
             $table->string('jurusan');
             $table->string('foto');
@@ -29,5 +34,6 @@ return new class extends Migration
     public function down(): void
     {
         //
+        Schema::dropIfExists('students');
     }
 };

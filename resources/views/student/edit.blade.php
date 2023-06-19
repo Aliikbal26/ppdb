@@ -43,6 +43,14 @@
                     @enderror
                 </div>
                 <div class="form-group">
+                    <label class=" my-2" for="jurusan">Jenis Kelamin</label><br>
+                    <input class="form-check-input" type="radio" value="Laki-Laki" name="gender" id="genderL">
+                    <label class="form-check-label mb-2 mr-2" for="genderL">Laki Laki</label>
+                    <input class="form-check-input" type="radio" value="Perempuan" name="gender" id="genderP">
+                    <label class="form-check-label mb-2 mr-2" for="genderP">Perempuan</label>
+
+                </div>
+                <div class="form-group">
                     <label for="jurusan">Jurusan</label>
                     <select name="jurusan" class="form-control" id="jurusan">
                         <option value="Teknik Informatika">Teknik Informatika</option>

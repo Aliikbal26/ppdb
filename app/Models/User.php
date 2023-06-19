@@ -22,7 +22,11 @@ class User extends Authenticatable
         'email',
         'password',
         'photo',
+        'level',
+        'id'
+
     ];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -34,7 +38,7 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    protected $level = 'user';
+    //protected $level = 'user';
 
     /**
      * The attributes that should be cast.
@@ -45,6 +49,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function relasiEmail()
+    {
+        return $this->hasMany(Student::class);
+    }
 
     public function admin()
     {
